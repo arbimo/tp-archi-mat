@@ -94,7 +94,7 @@ int main(int argc, char **argv) {
     cnt_fm = db_count_female_muggles(db);
     STOP_CHRONO(female_muggles, num_elements);
 
-    printf("Results of queries: (count_male: %d) (max-age: %d) (oldest: %ld) (closest: %ld) (query1: %d)\n", cnt, age, oldest_person, id_closest, cnt_fm);
+    printf("Results of queries: (count_male: %d) (max-age: %d) (oldest: %ld) (closest: %ld) (female-muggles: %d)\n", cnt, age, oldest_person, id_closest, cnt_fm);
 
     printf("Execution successful\n");
 

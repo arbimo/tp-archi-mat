@@ -20,6 +20,7 @@ typedef struct DB {
 } DB;
 
 
+/** Initializes the database from the array `persons` (of length `len`) */
 DB* db_init(Person *persons, int len) {
     DB * db = malloc(sizeof(DB));
     db->first_names = malloc_aligned(sizeof(char *) * len);

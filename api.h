@@ -16,8 +16,8 @@ typedef struct Person {
     char male;        // 1 for male, 0 for female
     char wizard;      // 1 for wizard, 0 for muggle
     uint32_t age;     // 32 bits unsigned int representing the age
-    float latitude;
-    float longitude;
+    float latitude;   // latitude of his last know residence
+    float longitude;  // longitude of his last know residence
 } Person;
 
 /** Data structure holding the content of the database. */
