@@ -1,10 +1,18 @@
 #include "api.h"
 
 
+/** This database is structured as an array of Persons.
+ *   - `persons` is the pointer on the first element of the array. 
+ *     The second element will be located in memory right after the the first one, ...
+ *   - `persons[i]` accesses the i-th element of the array.
+ *     `i` is called the ID of the person in the database.
+ *   - the field `size` indicates the size of the array which is also the number
+ *     of `Person`s in the database.
+ */
 typedef struct DB {
-    // array of persons
+    // Pointer on the first element of the array.
     Person * persons;
-    // number of persons in the database
+    // Number of persons in the database
     int size;
 } DB;
 
@@ -14,9 +22,12 @@ DB* db_init(Person *persons_array, int num_elements) {
     db->size = num_elements;
 
     // allocate a new array to hold the persons of the database
+    // `array_start` is represented as an integer to facilitate its manipulation.
     unsigned long array_start = (unsigned long) malloc(num_elements * sizeof(Person));
     // 2.K : Décaler le début du tableau pour forcer l'alignement
     // array_start = array_start + ???;
+
+    // Set the begining of the array.
     db->persons = (Person *) array_start;
 
     // copy of all persons into the database
@@ -24,7 +35,7 @@ DB* db_init(Person *persons_array, int num_elements) {
         db->persons[i] = persons_array[i];
     }
 
-    // 2.J AFFICHER LES ADRESSES/DECALAGE DES DEUX PREMIERS ELEMENTS
+    // 2.J AFFICHER LES ADRESSES/DECALAGEs DES DEUX PREMIERS ELEMENTS
     unsigned long address_first = (unsigned long) db->persons;
     unsigned long address_second = (unsigned long) &(db->persons[1]);
 
